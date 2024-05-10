@@ -1,0 +1,187 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Address</title>
+    Bootstrap CSS
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Add Address</h1>
+        <form action="/checkout/addAddress" method="post">
+        <div class="form-group">
+                <label for="name">Enter Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Enter Contact</label>
+                <input type="text" class="form-control" id="mobile" name="mobile" required>
+            </div>
+            <div class="form-group">
+                <label for="addressLine1">Address Line 1</label>
+                <input type="text" class="form-control" id="addressLine1" name="addressLine1" required>
+            </div>
+            <div class="form-group">
+                <label for="addressLine2">Address Line 2</label>
+                <input type="text" class="form-control" id="addressLine2" name="addressLine2">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" name="city" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="state">State</label>
+                    <input type="text" class="form-control" id="state" name="state" required>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="zip">Zip</label>
+                    <input type="text" class="form-control" id="zipCode" name="zipCode" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" name="country" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Address</button>
+        </form>
+    </div>
+    Bootstrap JS and dependencies
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+ -->
+ 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Address</title>
+<!-- Bootstrap CSS -->
+<link
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    rel="stylesheet">
+<style>
+/* Custom CSS for styling */
+body {
+    padding-top: 50px; /* Adjust for fixed navbar */
+    background-color: #f8f9fa; /* Set a light background color */
+}
+
+.container {
+    max-width: 600px; /* Set max width for better readability */
+    background-color: #fff; /* Set container background color */
+    border-radius: 10px; /* Add some border radius for a modern look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 30px; /* Add some padding for spacing */
+    margin-top: 20px; /* Add some margin from the top */
+}
+
+h1 {
+    color: #007bff; /* Set heading color */
+    text-align: center; /* Center align the heading */
+}
+
+label {
+    /* Make labels bold */
+
+}
+
+.btn-primary {
+    width: 100%; /* Make button full width */
+}
+
+.required {
+    color: red
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">
+            <u>Add Address</u>
+        </h1>
+        <form action="/checkout/addAddress" method="post" id="addressForm">
+            <div class="form-group">
+                <label for="name">Enter Name<span class="required">*</span></label>
+                <input type="text" class="form-control" id="name" name="name"
+                    required>
+                <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Enter Contact<span class="required">*</span></label>
+                <input type="tel"  pattern="[6789][0-9]{9}" class="form-control" id="mobile" name="mobile"
+                    required>
+                <div class="invalid-feedback">Please enter a valid phone
+                    number.</div>
+            </div>
+            <div class="form-group">
+                <label for="addressLine1">Address Line 1<span
+                    class="required">*</span></label> <input type="text" class="form-control"
+                    id="addressLine1" name="addressLine1" required>
+                <div class="invalid-feedback">Please enter the address line 1.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="addressLine2">Address Line 2</label> <input type="text"
+                    class="form-control" id="addressLine2" name="addressLine2">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="city">City<span class="required">*</span></label> <input
+                        type="text" class="form-control" id="city" name="city" required>
+                    <div class="invalid-feedback">Please enter the city.</div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="state">State<span class="required">*</span></label> <input
+                        type="text" class="form-control" id="state" name="state" required>
+                    <div class="invalid-feedback">Please enter the state.</div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="zipCode">Zip<span class="required">*</span></label> <input
+                        type="text" class="form-control" id="zipCode" name="zipCode"
+                        required>
+                    <div class="invalid-feedback">Please enter a valid ZIP code.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="country">Country<span class="required">*</span></label>
+                <input type="text" class="form-control" id="country" name="country"
+                    required>
+                <div class="invalid-feedback">Please enter the country.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Address</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.1/dist/umd/popper.min.js"></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript for form validation
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var form = document.getElementById('addressForm');
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            }, false);
+        })();
+    </script>
+</body>
+</html>
